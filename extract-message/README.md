@@ -1,9 +1,10 @@
 # Extract Message
 
 This is a Slack app I made for the sole purpose of adding a Workflow Builder step. The step itself is the custom function written in [extract_message.ts](https://github.com/TyJaYo/slack/blob/main/extract-message/functions/extract_message.ts) and registered in [manifest.ts](https://github.com/TyJaYo/slack/blob/main/extract-message/manifest.ts). Once deployed to your workspace (see instructions below), it makes a custom step available in the new Workflow Builder. The step must be populated with the channel ID and timestamp of the message you want the text from:
-<img width="527" alt="image" src="https://github.com/TyJaYo/slack/assets/10833927/8e6015f4-0d33-45cd-bf00-35eae88213eb">
+<img width="200" alt="image" src="https://github.com/TyJaYo/slack/assets/10833927/8e6015f4-0d33-45cd-bf00-35eae88213eb">
+
 This makes a new variable called "Message Text" available in subsequent steps. In my case, I put it in a spreadsheet:
-<img width="524" alt="image" src="https://github.com/TyJaYo/slack/assets/10833927/5d30cedd-2592-4746-9c40-aafcf94bab3e">
+<img width="200" alt="image" src="https://github.com/TyJaYo/slack/assets/10833927/5d30cedd-2592-4746-9c40-aafcf94bab3e">
 
 
 **Guide Outline**
