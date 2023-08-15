@@ -40,10 +40,10 @@ Step-by-step instructions can be found in Slack's
 
 ```zsh
 # Use the CLI to spin up the app structure
-$ slack create extract-message
+slack create extract-message
 
 # Change into the project directory
-$ cd extract-message
+cd extract-message
 ```
 
 ### Update Local Files
@@ -56,7 +56,7 @@ From within the app directory entered above, deploy the app to Slack infrastruct
 `slack deploy`:
 
 ```zsh
-$ slack deploy
+slack deploy
 ```
 
 ## Viewing Activity Logs
@@ -65,7 +65,7 @@ Activity logs of your application can be viewed live and as they occur with the
 following command:
 
 ```zsh
-$ slack activity --tail
+slack activity --tail
 ```
 
 ## Project Structure
