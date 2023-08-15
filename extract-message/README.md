@@ -1,16 +1,17 @@
-# Blank Template
+# Extract Message
 
-This is a blank template used to build out automations using the Slack CLI.
+This is a Slack app I made for the sole purpose of adding a Workflow Builder step. The step itself is the custom function written in [extract_message.ts](https://github.com/TyJaYo/slack/blob/main/extract-message/functions/extract_message.ts) and registered in [manifest.ts](https://github.com/TyJaYo/slack/blob/main/extract-message/manifest.ts). Once deployed to your workspace (see instructions below), it makes a custom step available in the new Workflow Builder. The step must be populated with the channel ID and timestamp of the message you want the text from:
+<img width="527" alt="image" src="https://github.com/TyJaYo/slack/assets/10833927/8e6015f4-0d33-45cd-bf00-35eae88213eb">
+This makes a new variable called "Message Text" available in subsequent steps. In my case, I put it in a spreadsheet:
+<img width="524" alt="image" src="https://github.com/TyJaYo/slack/assets/10833927/5d30cedd-2592-4746-9c40-aafcf94bab3e">
 
-**Guide Outline**:
+
+**Guide Outline**
 
 - [Setup](#setup)
   - [Install the Slack CLI](#install-the-slack-cli)
-  - [Clone the Template](#clone-the-template)
-- [Running Your Project Locally](#running-your-project-locally)
-- [Creating Triggers](#creating-triggers)
-- [Datastores](#datastores)
-- [Testing](#testing)
+  - [Create a Slack App](#create-a-slack-app)
+  - [Add/Replace Local Files with Those Found Here](#add-replace-local-files-with-those-found-here)
 - [Deploying Your App](#deploying-your-app)
 - [Viewing Activity Logs](#viewing-activity-logs)
 - [Project Structure](#project-structure)
@@ -27,111 +28,32 @@ project require that the workspace be part of
 
 ### Install the Slack CLI
 
-To use this template, you need to install and configure the Slack CLI.
-Step-by-step instructions can be found in our
+To use this app, you need to install and configure the Slack CLI.
+Step-by-step instructions can be found in Slack's
 [Quickstart Guide](https://api.slack.com/automation/quickstart).
 
-### Clone the Template
-
-Start by cloning this repository:
+### Create a Slack App
 
 ```zsh
-# Clone this project onto your machine
-$ slack create my-app -t slack-samples/deno-blank-template
+# Use the CLI to spin up the app structure
+$ slack create extract-message
 
 # Change into the project directory
-$ cd my-app
+$ cd extract-message
 ```
 
-## Running Your Project Locally
+### Add/Replace Local Files with Those Found Here
 
-While building your app, you can see your changes appear in your workspace in
-real-time with `slack run`. You'll know an app is the development version if the
-name has the string `(local)` appended.
-
-```zsh
-# Run app locally
-$ slack run
-
-Connected, awaiting events
-```
-
-To stop running locally, press `<CTRL> + C` to end the process.
-
-## Creating Triggers
-
-[Triggers](https://api.slack.com/automation/triggers) are what cause workflows
-to run. These triggers can be invoked by a user, or automatically as a response
-to an event within Slack.
-
-When you `run` or `deploy` your project for the first time, the CLI will prompt
-you to create a trigger if one is found in the `triggers/` directory. For any
-subsequent triggers added to the application, each must be
-[manually added using the `trigger create` command](#manual-trigger-creation).
-
-When creating triggers, you must select the workspace and environment that you'd
-like to create the trigger in. Each workspace can have a local development
-version (denoted by `(local)`), as well as a deployed version. _Triggers created
-in a local environment will only be available to use when running the
-application locally._
-
-### Link Triggers
-
-A [link trigger](https://api.slack.com/automation/triggers/link) is a type of
-trigger that generates a **Shortcut URL** which, when posted in a channel or
-added as a bookmark, becomes a link. When clicked, the link trigger will run the
-associated workflow.
-
-Link triggers are _unique to each installed version of your app_. This means
-that Shortcut URLs will be different across each workspace, as well as between
-[locally run](#running-your-project-locally) and
-[deployed apps](#deploying-your-app).
-
-With link triggers, after selecting a workspace and environment, the output
-provided will include a Shortcut URL. Copy and paste this URL into a channel as
-a message, or add it as a bookmark in a channel of the workspace you selected.
-Interacting with this link will run the associated workflow.
-
-**Note: triggers won't run the workflow unless the app is either running locally
-or deployed!**
-
-### Manual Trigger Creation
-
-To manually create a trigger, use the following command:
-
-```zsh
-$ slack trigger create --trigger-def triggers/<YOUR_TRIGGER_FILE>.ts
-```
-
-## Datastores
-
-For storing data related to your app, datastores offer secure storage on Slack
-infrastructure. The use of a datastore requires the
-`datastore:write`/`datastore:read` scopes to be present in your manifest.
-
-## Testing
-
-Test filenames should be suffixed with `_test`.
-
-Run all tests with `deno test`:
-
-```zsh
-$ deno test
-```
+You'll need the two files mentioned above. The former ([extract_message.ts](https://github.com/TyJaYo/slack/blob/main/extract-message/functions/extract_message.ts)) goes in a subdirectory called 'functions' that you will need to create. The contents of the latter ([manifest.ts](https://github.com/TyJaYo/slack/blob/main/extract-message/manifest.ts)) must replace your existing manifest.ts file.
 
 ## Deploying Your App
 
-Once development is complete, deploy the app to Slack infrastructure using
+From within the app directory entered above, deploy the app to Slack infrastructure using
 `slack deploy`:
 
 ```zsh
 $ slack deploy
 ```
-
-When deploying for the first time, you'll be prompted to
-[create a new link trigger](#creating-triggers) for the deployed version of your
-app. When that trigger is invoked, the workflow should run just as it did when
-developing locally (but without requiring your server to be running).
 
 ## Viewing Activity Logs
 
