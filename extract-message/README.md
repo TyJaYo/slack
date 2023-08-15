@@ -1,18 +1,21 @@
 # Extract Message
 
 This is a Slack app I made for the sole purpose of adding a Workflow Builder step. The step itself is the custom function written in [extract_message.ts](https://github.com/TyJaYo/slack/blob/main/extract-message/functions/extract_message.ts) and registered in [manifest.ts](https://github.com/TyJaYo/slack/blob/main/extract-message/manifest.ts). Once deployed to your workspace (see instructions below), it makes a custom step available in the new Workflow Builder. The step must be populated with the channel ID and timestamp of the message you want the text from:
+
 <img width="200" alt="image" src="https://github.com/TyJaYo/slack/assets/10833927/8e6015f4-0d33-45cd-bf00-35eae88213eb">
 
 This makes a new variable called "Message Text" available in subsequent steps. In my case, I put it in a spreadsheet:
+
 <img width="200" alt="image" src="https://github.com/TyJaYo/slack/assets/10833927/5d30cedd-2592-4746-9c40-aafcf94bab3e">
 
+---
 
 **Guide Outline**
 
 - [Setup](#setup)
   - [Install the Slack CLI](#install-the-slack-cli)
   - [Create a Slack App](#create-a-slack-app)
-  - [Add/Replace Local Files with Those Found Here](#add-replace-local-files-with-those-found-here)
+  - [Update Local Files](#update-local-files)
 - [Deploying Your App](#deploying-your-app)
 - [Viewing Activity Logs](#viewing-activity-logs)
 - [Project Structure](#project-structure)
@@ -43,7 +46,7 @@ $ slack create extract-message
 $ cd extract-message
 ```
 
-### Add/Replace Local Files with Those Found Here
+### Update Local Files
 
 You'll need the two files mentioned above. The former ([extract_message.ts](https://github.com/TyJaYo/slack/blob/main/extract-message/functions/extract_message.ts)) goes in a subdirectory called 'functions' that you will need to create. The contents of the latter ([manifest.ts](https://github.com/TyJaYo/slack/blob/main/extract-message/manifest.ts)) must replace your existing manifest.ts file.
 
