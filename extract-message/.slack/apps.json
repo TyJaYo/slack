@@ -1,0 +1,11 @@
+{
+  "apps": {
+    "T1EV7SGHY": {
+      "app_id": "A05NALW0JE5",
+      "IsDev": false,
+      "team_domain": "benchprep",
+      "team_id": "T1EV7SGHY"
+    }
+  },
+  "default": "benchprep"
+}
