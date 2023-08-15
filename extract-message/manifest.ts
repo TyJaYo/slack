@@ -9,5 +9,5 @@ export default Manifest({
   functions: [ExtractMessageFunction],
   workflows: [],
   outgoingDomains: [],
-  botScopes: ["commands", "chat:write", "chat:write.public", "channels:history"]
+  botScopes: ["channels:history"]
 });
