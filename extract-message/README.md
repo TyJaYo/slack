@@ -20,6 +20,7 @@ This makes a new variable called "Message Text" available in subsequent steps. I
 - [Viewing Activity Logs](#viewing-activity-logs)
 - [Project Structure](#project-structure)
 - [Resources](#resources)
+- [Disclaimers](#disclaimers)
 
 ---
 
