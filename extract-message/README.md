@@ -48,11 +48,11 @@ cd extract-message
 
 ### Update Local Files
 
-You'll need the two files mentioned above. The former ([extract_message.ts](https://github.com/TyJaYo/slack/blob/main/extract-message/functions/extract_message.ts)) goes in a subdirectory called 'functions' that you will need to create. The contents of the latter ([manifest.ts](https://github.com/TyJaYo/slack/blob/main/extract-message/manifest.ts)) must replace your existing manifest.ts file.
+You'll need the two files mentioned above. The former ([extract_message.ts](https://github.com/TyJaYo/slack/blob/main/extract-message/functions/extract_message.ts)) goes in a subdirectory called 'functions' that you will need to create. The latter ([manifest.ts](https://github.com/TyJaYo/slack/blob/main/extract-message/manifest.ts)) must replace the manifest.ts file instantiated by `slack create` in the previous step.
 
 ## Deploying Your App
 
-From within the app directory entered above, deploy the app to Slack infrastructure using
+From within the app directory entered above using `cd`, deploy the app to Slack infrastructure using
 `slack deploy`:
 
 ```zsh
@@ -68,7 +68,9 @@ following command:
 slack activity --tail
 ```
 
-## Project Structure
+This can be very useful in debugging an implementation of this code as it runs (or tries to run) in your workspace. I have not included any error handling or helpful failure messages in this code, so it will either work perfectly or implode mysteriously. A common issue is not inviting the bot to the channel in which it needs to eavesdrop to retrieve the message.
+
+## Project Structure (common to all Slack apps)
 
 ### `.slack/`
 
@@ -119,3 +121,7 @@ To learn more about developing automations on Slack, visit the following:
 - [Automation Overview](https://api.slack.com/automation)
 - [CLI Quick Reference](https://api.slack.com/automation/cli/quick-reference)
 - [Samples and Templates](https://api.slack.com/automation/samples)
+
+## Disclaimers
+
+I do not work for Slack. I made this to meet my own needs and learn about developing Slack apps. I'm sharing it freely here so that people who just want the thing to do the thing can just have the thing that makes the thing do the thing. I'm open to pull requests, or you can also just take this and run with it on your own if you want. I don't even care if you find some way to make money from it. I hope it becomes possible within Slack without a premium.
